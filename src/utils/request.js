@@ -15,12 +15,12 @@ service.interceptors.request.use(
   config => {
     // do something before request is sent
 
-    if (store.getters.token) {
+    //if (store.getters.token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
-      config.headers['X-Token'] = getToken()
-    }
+      //config.headers['X-Token'] = getToken()
+    //}
     return config
   },
   error => {
@@ -68,7 +68,7 @@ service.interceptors.response.use(
       }
       return Promise.reject(res.message || 'error')
     } else {
-      return res
+      return res.data
     }
   },
   error => {
